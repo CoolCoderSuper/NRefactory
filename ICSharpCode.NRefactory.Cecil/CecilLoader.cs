@@ -935,7 +935,7 @@ namespace ICSharpCode.NRefactory.TypeSystem
 					baseTypes.Add(ReadTypeReference(typeDefinition.BaseType));
 				}
 				if (typeDefinition.HasInterfaces) {
-					foreach (TypeReference iface in typeDefinition.Interfaces) {
+					foreach (TypeReference iface in typeDefinition.Interfaces.Select(x => x.InterfaceType)) {
 						baseTypes.Add(ReadTypeReference(iface));
 					}
 				}

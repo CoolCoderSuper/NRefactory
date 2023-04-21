@@ -1621,7 +1621,7 @@ namespace ICSharpCode.NRefactory.TypeSystem
 			tp.HasDefaultConstructorConstraint = g.HasDefaultConstructorConstraint;
 			
 			if (g.HasConstraints) {
-				foreach (TypeReference constraint in g.Constraints) {
+				foreach (TypeReference constraint in g.Constraints.Select(x => x.ConstraintType)) {
 					tp.Constraints.Add(ReadTypeReference(constraint));
 				}
 			}
